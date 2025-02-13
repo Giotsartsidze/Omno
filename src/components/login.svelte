@@ -8,7 +8,7 @@
   function handleLogin() {
     if (username === 'admin' && password === 'password') {
       localStorage.setItem('isLoggedIn', 'true');
-      onLogin();  // Trigger the parent login function
+      onLogin();  
     } else {
       errorMessage = 'Invalid username or password';
     }

@@ -1,7 +1,7 @@
 <script lang="ts">
     function logout() {
       localStorage.removeItem('isLoggedIn');
-      window.location.href = '/'; // Redirect to login page after logout
+      window.location.href = '/';
     }
   </script>
   

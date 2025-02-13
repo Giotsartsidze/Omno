@@ -3,7 +3,7 @@
   import { deleteWebhook } from "../lib/store";
   import type { Webhook } from "../lib/type";
   import DeleteModal from "./DeleteModal.svelte";
-  import WebhookModal from "./WebhookModal.svelte"; // Import your WebhookModal
+  import WebhookModal from "./WebhookModal.svelte";
   import { onMount } from 'svelte';
 
   export let webhook: Webhook;
@@ -16,7 +16,7 @@
 
   function edit() {
     console.log(webhook)
-    dispatch("edit", webhook); // Dispatch the webhook data to parent
+    dispatch("edit", webhook); 
     showMenu = false; 
   }
 

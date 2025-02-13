@@ -37,8 +37,8 @@
 
 <style>
   .active {
-  background-color: #1ACC79; /* Light Green */
-  color: #fff; /* Dark Green Text */
+  background-color: #1ACC79; 
+  color: #fff;
   border:none;
   border-radius: 10px;
   text-align: center;

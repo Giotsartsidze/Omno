@@ -6,10 +6,8 @@
 
   function filterWebhooks() {
     if (search === "") {
-      // If search is empty, reset the list to the original full list
       webhooks.set([...$allWebhooks]);
     } else {
-      // Filter the list based on the search input
       webhooks.update((list) =>
         list.filter((hook) =>
           hook.nickname.toLowerCase().includes(search.toLowerCase())

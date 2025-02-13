@@ -1,6 +1,5 @@
 import { writable } from 'svelte/store';
 
-  // Dummy webhook data
   export const statuses = writable([
     {
       id: '1',

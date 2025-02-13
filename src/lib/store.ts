@@ -2,7 +2,6 @@ import { writable } from "svelte/store";
 import type { Webhook } from "./type";
 import { addNotification } from "./notifications";
 
-// Store for the original list of webhooks (allWebhooks)
 export const allWebhooks = writable<Webhook[]>([
   {
     id: 1,

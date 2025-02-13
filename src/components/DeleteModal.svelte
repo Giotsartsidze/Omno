@@ -36,7 +36,6 @@
   {/if}
   
   <style>
-    /* Modal Background */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -50,7 +49,6 @@
       z-index: 1000;
     }
   
-    /* Modal Box */
     .modal {
       background: white;
       padding: 20px;
@@ -73,7 +71,6 @@
       opacity: 0.5;
     }
   
-    /* Buttons */
     .actions {
       margin-top: 20px;
       display: flex;

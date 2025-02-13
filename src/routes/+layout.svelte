@@ -40,7 +40,6 @@
 
     <hr />
 
-    <!-- Dynamically load the page content here -->
     <slot />
 
     <button class="logout" on:click={handleLogout}>Logout</button>
