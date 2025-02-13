@@ -1,0 +1,67 @@
+import { writable } from 'svelte/store';
+
+  // Dummy webhook data
+  export const statuses = writable([
+    {
+      id: '1',
+      createdAt: '2023-11-20T14:45:00Z',
+      httpCode: 200,
+      failures: 3,
+      status: 'Active',
+      message: 'Success',
+      lastTry: '2023-12-01T10:00:00Z',
+      nextTry: '2023-12-02T10:00:00Z',
+      modifiedBy: 'John Doe',
+      authType: 'Basic',
+    },
+    {
+      id: '2',
+      createdAt: '2023-12-01T08:30:00Z',
+      httpCode: 404,
+      failures: 5,
+      status: 'Inactive',
+      message: 'Not Found',
+      lastTry: '2023-12-01T09:30:00Z',
+      nextTry: '2023-12-02T09:30:00Z',
+      modifiedBy: 'Jane Smith',
+      authType: 'Bearer',
+    },
+    {
+      id: '3',
+      createdAt: '2023-12-05T09:00:00Z',
+      httpCode: 500,
+      failures: 2,
+      status: 'Active',
+      message: 'Internal Server Error',
+      lastTry: '2023-12-05T09:30:00Z',
+      nextTry: '2023-12-06T09:30:00Z',
+      modifiedBy: 'Chris Johnson',
+      authType: 'OAuth',
+    },
+    {
+      id: '4',
+      createdAt: '2023-12-10T10:15:00Z',
+      httpCode: 200,
+      failures: 0,
+      status: 'Active',
+      message: 'Success',
+      lastTry: '2023-12-10T10:15:00Z',
+      nextTry: '2023-12-11T10:15:00Z',
+      modifiedBy: 'Alice Brown',
+      authType: 'API Key',
+    },
+    {
+      id: '5',
+      url: 'https://example5.com/webhook',
+      createdAt: '2023-12-12T12:30:00Z',
+      httpCode: 403,
+      failures: 1,
+      status: 'Inactive',
+      message: 'Forbidden',
+      lastTry: '2023-12-12T12:45:00Z',
+      nextTry: '2023-12-13T12:45:00Z',
+      modifiedBy: 'Bob White',
+      authType: 'Basic',
+    }
+  ]);
+
