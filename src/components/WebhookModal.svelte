@@ -4,7 +4,7 @@
   import { addWebhook, updateWebhook } from "../lib/store";
 
   export let showModal: boolean = false;
-  export let webhook: Webhook ;
+  export let webhook: Webhook | null = null;
   
 
   let customHeaders: { key: string; value: string }[] = [];
@@ -25,6 +25,8 @@
   let username: string = "";
   let password: string = "";
   let token: string = "";
+  let key: string = "";
+  let value: string = "";
   let oAuthAuthor: string = "";
   let tokenEndpoint: string = "";
   let clientId: string = "";
@@ -75,12 +77,20 @@
     }
 
     if (webhook) {
-      updateWebhook({ ...webhook, nickname, url, authType });
+      updateWebhook({ ...webhook, nickname, url, authType , tokenEndpoint, clientId, clientSecret, grantType });
     } else {
       addWebhook({
         nickname,
         url,
         authType,
+        tokenEndpoint,
+        clientId,
+        clientSecret,
+        grantType,
+        username,
+        password,
+        key,
+        value,
         createdAt: new Date().toISOString(),
       });
     }
@@ -100,6 +110,25 @@
   function setAuthType(type: Webhook["authType"]) {
     authType = type;
   }
+
+  onMount(() => {
+  if (webhook) {
+    nickname = webhook.nickname || "";
+    url = webhook.url || "";
+    authType = webhook.authType || "";
+    username = webhook.username || "";
+    password = webhook.password || "";
+    token = webhook.token || "";
+    key = webhook.key || "";
+    value = webhook.value || "";
+    oAuthAuthor = webhook.oAuthAuthor || "";
+    tokenEndpoint = webhook.tokenEndpoint || "";
+    clientId = webhook.clientId || "";
+    clientSecret = webhook.clientSecret || "";
+    grantType = webhook.grantType || "";
+  }
+});
+
 
 </script>
 
@@ -296,7 +325,9 @@
       </div>
 
       <div class="actions">
-        <button on:click={save} class="save-btn"><span>+</span> Create</button>
+        <button on:click={save} class="save-btn">
+          <span>+</span> {webhook ? "Update" : "Create"}
+        </button>
       </div>
     </div>
   </div>

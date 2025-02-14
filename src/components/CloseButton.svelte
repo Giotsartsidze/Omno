@@ -1,4 +1,3 @@
-<!-- src/components/CloseButton.svelte -->
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
   

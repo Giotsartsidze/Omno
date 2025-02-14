@@ -5,9 +5,17 @@
   import SideMenu from "../components/SideMenu.svelte";
   import { onMount } from "svelte";
   import { page } from "$app/stores";
+  import AddWebhook from "../components/AddWebhook.svelte";
+  import WebhookModal from "../components/WebhookModal.svelte";
 
   let isLoggedIn = false;
+  let showModal = false;
+  let selectedWebhook: null = null;
 
+  function closeModal() {
+    showModal = false;
+    selectedWebhook = null;
+  }
   onMount(() => {
     isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   });
@@ -20,6 +28,12 @@
   function handleLogout() {
     localStorage.removeItem("isLoggedIn");
     isLoggedIn = false;
+  }
+
+
+  function openModal(event: CustomEvent) {
+    selectedWebhook = event.detail.webhook;
+    showModal = true;
   }
 </script>
 
@@ -36,9 +50,11 @@
           >Statuses</a
         >
       </div>
+      <AddWebhook on:open={openModal} />
     </nav>
 
     <hr />
+    <WebhookModal {showModal} webhook={selectedWebhook} on:close={closeModal} />
 
     <slot />
 

@@ -13,19 +13,17 @@
   </button>
   
   <style>
-    button{
+    .add-btn{
       background-color: #FBDF56;
-      border-radius: 5px;
-      padding: 10px 20px;
+      border-radius: 10px;
       color: #2E2E2E;
       font-size: 16px;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 5px;
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      padding: 10px 20px;
+      width: 165px;
+      height: 36px;
     }
     span{
       font-size: 22px;

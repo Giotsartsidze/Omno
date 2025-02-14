@@ -12,13 +12,22 @@
   let showDeleteModal = false;
   let showMenu = false; 
   let menuRef: HTMLDivElement; 
+  let showModal = false; 
+
   let iconRef: HTMLDivElement; 
 
-  function edit() {
-    console.log(webhook)
-    dispatch("edit", webhook); 
-    showMenu = false; 
+ function edit() {
+  showModal = true; 
+  dispatch("edit", webhook);
+  showMenu = false;
+}
+
+function closeAllModals() {
+    showDeleteModal = false;
+    showModal = false;
+    showMenu = false; // Optionally close the menu as well
   }
+
 
   function confirmDelete() {
     showDeleteModal = true;
@@ -64,8 +73,14 @@
   on:confirm={handleConfirm} 
   on:cancel={handleCancel} 
 />
-
-<WebhookModal {webhook} on:close={() => showMenu = false} />
+<WebhookModal 
+  {webhook} 
+  {showModal} 
+  on:close={() => {
+    showModal = false;
+    showMenu = false;
+  }} 
+/>
 
 <style>
   .icon-container {
