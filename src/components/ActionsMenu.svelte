@@ -25,7 +25,7 @@
 function closeAllModals() {
     showDeleteModal = false;
     showModal = false;
-    showMenu = false; // Optionally close the menu as well
+    showMenu = false;
   }
 
 

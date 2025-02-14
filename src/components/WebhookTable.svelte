@@ -16,10 +16,10 @@
     date: null,
     authTypes: [],
   };
-
   function updateFilters(event: CustomEvent) {
-    selectedFilters = event.detail;
-  }
+  filters = event.detail; 
+  selectedFilters = event.detail; 
+}
 
   function openModal(event: CustomEvent) {
     selectedWebhook = event.detail.webhook;
@@ -54,18 +54,15 @@
     );
   }
 
-  function isWebhookFiltered(webhook: Webhook) {
-    if (filters.date && !webhook.createdAt.startsWith(filters.date)) {
-      return false;
-    }
-    if (
-      filters.authTypes.length > 0 &&
-      !filters.authTypes.includes(webhook.authType)
-    ) {
-      return false;
-    }
-    return true;
+function isWebhookFiltered(webhook: Webhook) {
+  if (filters.date && !webhook.createdAt.startsWith(filters.date)) {
+    return false;
   }
+  if (filters.authTypes.length > 0 && !filters.authTypes.includes(webhook.authType)) {
+    return false;
+  }
+  return true;
+}
 
   function clearAllFilters() {
     filters = { date: null, authTypes: [] };
@@ -115,21 +112,19 @@
       <th>Created Date</th>
       <th>Last Modified</th>
       <th>Authorization Type</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-     {#each $webhooks as webhook (webhook.id)}
+    {#each $webhooks as webhook (webhook.id)}
       {#if isWebhookFiltered(webhook)}
         <tr>
           <td>{webhook.nickname}</td>
           <td>{webhook.url}</td>
           <td>{new Date(webhook.createdAt).toLocaleDateString()}</td>
           <td>
-            <img
-              class="avatar"
-              src="/Avatar.svg"
-              alt="Avatar Icon"
-            />{webhook.modifiedBy}
+            <img class="avatar" src="/Avatar.svg" alt="Avatar Icon" />
+            {webhook.modifiedBy}
           </td>
           <td>{webhook.authType}</td>
           <td>
